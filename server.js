@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-require('dotenv').config();
+require('dotenv').config()
+;
 //import routes
 const authRoutes = require('./routes/auth');
 const { db } = require('./models/User');
@@ -16,16 +17,14 @@ mongoose
       useUnifiedTopology: true
    })
   .then(() => console.log('DB Connected'));
-//middlewares
+//middleware
 app.use(bodyParser.json());
 app.use(cors());
-//routes middleware
+
+
+//routes 
 app.use('/api', authRoutes);
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log(`Server is running on ${port}`)
 });
-
-
-
-///this is server.js in my other apps
